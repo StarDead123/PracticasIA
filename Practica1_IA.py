@@ -8,7 +8,7 @@ def dibujar_cuadricula(n, coordenadas_x, coordenadas_c):
             cuadricula[y][x] = 'X'
         else:
             print(f"Advertencia: La coordenada ({x}, {y}) para 'X' está fuera de la cuadrícula y será ignorada.")
-    
+    c = 0
     # Marcar las coordenadas con 'C'
     for (x, y) in coordenadas_c:
         if 0 <= x < n and 0 <= y < n:  # Verificar que las coordenadas estén dentro de la cuadrícula
@@ -16,6 +16,7 @@ def dibujar_cuadricula(n, coordenadas_x, coordenadas_c):
                 print(f"Advertencia: La coordenada ({x}, {y}) ya está marcada con 'X' y no se puede marcar con 'C'.")
             else:
                 cuadricula[y][x] = 'C'
+                c += 1
         else:
             print(f"Advertencia: La coordenada ({x}, {y}) para 'C' está fuera de la cuadrícula y será ignorada.")
     
@@ -23,6 +24,7 @@ def dibujar_cuadricula(n, coordenadas_x, coordenadas_c):
     for fila in cuadricula:
         print(' '.join(fila))
     
+    print(f"CANTIDAD DE CABALLOS EN EL TABLERO: {c}")
     # Devolver la cuadrícula modificada (opcional)
     return cuadricula
 
